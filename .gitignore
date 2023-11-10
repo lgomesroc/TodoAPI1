@@ -6,6 +6,6 @@
 /TodoAPI1/.vs
 
 
-*.editorconfig
+/TodoAPI1/.vs/TodoAPI1/v17/.suo
 
 /TodoAPI1/obj

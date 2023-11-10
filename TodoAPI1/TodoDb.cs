@@ -1,12 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TodoAPI1.Model;
 
 namespace TodoAPI1
 {
-    public class TodoDb
+    //Heritage (DbContext)
+
+    public class TodoDb : DbContext
     {
         public TodoDb(DbContextOptions<TodoDb> options) : base(options)
         { 
+            
         }
-        public DbSet<Todo> Todos => DbSet<Todo>(); 
+        public DbSet<Todo> Todos { get; set; }
     }
 }
