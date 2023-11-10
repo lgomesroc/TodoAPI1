@@ -1,4 +1,5 @@
-﻿using TodoAPI1.Repository;
+﻿using TodoAPI1.Model;
+using TodoAPI1.Repository;
 
 namespace TodoAPI1.Services
 {
@@ -9,6 +10,11 @@ namespace TodoAPI1.Services
         public TodoService(TodoRepository todoRepository)
         {
             _todoRepository = todoRepository;
+        }
+
+        public async Task AddTodo(Todo todo)
+        {
+            _todoRepository.Salvar(todo);
         }
 
     }

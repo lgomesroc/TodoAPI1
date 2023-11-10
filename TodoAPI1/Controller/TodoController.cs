@@ -2,15 +2,18 @@
 using Microsoft.EntityFrameworkCore;
 using TodoAPI1.Dto.Response;
 using TodoAPI1.Model;
+using TodoAPI1.Services;
 
 namespace TodoAPI1.Controller
 {
     public class TodoController : ControllerBase
     {
         //Contructor
-        public TodoController()
+        private readonly TodoService _todoService;
+
+        public TodoController(TodoService todoService)
         {
-                
+            _todoService = todoService;
         }
 
 
@@ -37,17 +40,24 @@ namespace TodoAPI1.Controller
 
 
         [HttpPost]
-        public async Task<IResult> CreateTodo(TodoItemResponseDto todoItemDTO)
+        public async Task<IActionResult> CreateTodo(TodoItemResponseDto todoItemDTO)
         {
-            var todoItem = new Todo(todoItemDTO);
-            
+            try
+            {
+                Todo todoItem = new Todo(todoItemDTO);
 
-            db.Todos.Add(todoItem);
-            await db.SaveChangesAsync();
+                await _todoService.AddTodo(todoItem);
 
-            todoItemDTO = new TodoItemResponseDto(todoItem);
+                todoItemDTO = new TodoItemResponseDto(todoItem);
 
-            return TypedResults.Created($"/todoitems/{todoItem.Id}", todoItemDTO);
+                return Ok("Todo created success");
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         static async Task<IResult> UpdateTodo(int id, TodoItemResponseDto todoItemDTO, TodoDb db)
