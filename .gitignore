@@ -3,7 +3,7 @@
 ################################################################################
 
 
-/TodoAPI1/.vs
+
 
 
 /TodoAPI1/.vs/TodoAPI1/v17/.suo
@@ -13,13 +13,22 @@
 *.exe
 *.cache
 *.txt
-
-
-TodoAPI1/obj/*
-TodoAPI1/obj/Debug/net7.0/*
-TodoAPI1/obj/Debug/net7.0/*.json
-TodoAPI1/obj/Debug/net7.0/*.pdb
-
-
 *.json
 *.pdb
+*.bin
+*.vsidx
+*.v2
+*.v1
+
+/TodoAPI1/.vs/*
+/TodoAPI1/obj/*
+/TodoAPI1/obj/.vs/*
+/TodoAPI1/obj/.vs/*
+/TodoAPI1/obj/Debug/net7.0/*
+/TodoAPI1/obj/Debug/net7.0/*.json
+/TodoAPI1/obj/Debug/net7.0/*.pdb
+/TodoAPI1/.vs/ProjectEvaluation/*
+/TodoAPI1/.vs/TodoAPI1/v17/*
+/.vs/*
+
+/TodoAPI1/.vs/ProjectEvaluation/todoapi1.metadata.v7.bin
